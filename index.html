@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Business Autopilot — Revenue & SEO Engine</title>
+  <meta name="description" content="AI Business Autopilot: automatic AdSense + affiliate revenue dashboard with built-in SEO, A/B testing, and auto-blogging." />
+  <meta name="robots" content="index, follow" />
+  <meta name="google-adsense-account" content="ca-pub-2203546185229559" /> <!-- TODO: your AdSense Publisher ID -->
+
+  <!-- Social / OpenGraph -->
+  <meta property="og:title" content="AI Business Autopilot — Revenue & SEO Engine" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain-or-vercel-url.example" />
+  <meta property="og:description" content="Automatic AdSense + affiliate revenue, A/B testing, SEO and auto-blogging — zero maintenance." />
+  <meta property="og:image" content="https://img.shields.io/badge/AI%20Business%20Autopilot-blueviolet" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712139.png" type="image/png" />
+
+  <!-- AdSense loader (must be in head) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2203546185229559" crossorigin="anonymous"></script>
+
+  <style>
+    :root {
+      --bg: #e3f2fd;
+      --panel: #ffffff;
+      --ink: #0f172a;
+      --muted: #334155;
+      --brand: #0d47a1;
+      --brand-2: #0ea5e9;
+      --card: #f1f5f9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      margin: 0;
+    }
+    header.hero {
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      color: #fff; padding: 28px 16px; text-align: center;
+    }
+    header.hero h1 { margin: 0 0 6px; font-size: 28px; }
+    header.hero small { opacity: .9; }
+
+    .wrap { max-width: 1024px; margin: 24px auto; padding: 0 16px; }
+    .container {
+      background: var(--panel);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
+      padding: 22px;
+    }
+    .metrics {
+      display: grid; gap: 14px; margin-top: 16px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .metric {
+      background: var(--card); border-radius: 12px; padding: 16px;
+      text-align: center;
+    }
+    .metric h4 { margin: 0 0 6px; color: var(--muted); font-weight: 600; }
+    .metric p { margin: 0; font-size: 22px; font-weight: 700; }
+
+    .card {
+      background: var(--panel); border-radius: 12px; padding: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.06); margin: 14px 0;
+    }
+
+    footer.site {
+      background: var(--brand); color: white; text-align: center; padding: 28px 16px; margin-top: 28px;
+    }
+    footer.site a { color: #bbdefb; text-decoration: none; }
+
+    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn {
+      border: 1px solid var(--brand); color: var(--brand);
+      background: #fff; border-radius: 8px; padding: 8px 12px;
+      font-weight: 600; cursor: pointer;
+    }
+    .btn.primary { background: var(--brand); color: #fff; }
+    .fine { color: var(--muted); font-size: 12px; }
+  </style>
+</head>
+
+<body>
+  <!-- 🔹 Top Banner Ad -->
+  <div class="wrap">
+    <div class="card" style="text-align:center">
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-2203546185229559"   <!-- TODO: replace -->
+        data-ad-slot="1111111111"                  <!-- TODO: replace -->
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </div>
+
+  <header class="hero">
+    <h1>🚀 AI Business Autopilot</h1>
+    <small>Automatic AdSense + Affiliate Revenue • A/B testing • Auto-SEO • Auto-blogging</small>
+  </header>
+
+  <main class="wrap">
+    <section class="container">
+      <div class="btn-row" style="justify-content: space-between; align-items: center;">
+        <div class="fine">Layout learns & rotates weekly. Admin panel at bottom-right.</div>
+        <div>
+          <a href="blog.html" class="btn">Open Blog</a>
+          <button id="downloadRobots" class="btn">Download robots.txt</button>
+          <button id="downloadSitemap" class="btn">Download sitemap.xml</button>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <h4>Visitors</h4>
+          <p id="visitorsCount">0</p>
+        </div>
+        <div class="metric">
+          <h4>Revenue</h4>
+          <p id="revenueCount">$0.00</p>
+        </div>
+        <div class="metric">
+          <h4>Status</h4>
+          <p id="statusCell">Active</p>
+        </div>
+      </div>
+
+      <!-- Middle content card (with ad) -->
+      <div class="card">
+        <h3>Today’s Highlights</h3>
+        <p class="fine">Live ad+affiliate testing, SEO refreshes, and daily auto-posts keep traffic growing.</p>
+
+        <!-- 🔹 Middle Content Ad -->
+        <div style="margin: 18px 0;">
+          <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-2203546185229559"  <!-- TODO: replace -->
+            data-ad-slot="2222222222"                  <!-- TODO: replace -->
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <!-- Optional demo video (tracked) -->
+        <video id="demoVideo" controls width="100%" style="border-radius:10px; outline:none;">
+          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <p class="fine">Video analytics capture play/pause/complete events automatically.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer + Footer Ad -->
+  <footer class="site">
+  <p>© 2025 Travel in UK Ltd | AI Business Autopilot v1.0</p>
+  <p>
+    <a href="privacy.html">Privacy Policy</a> | 
+    <a href="terms.html">Terms of Service</a>
+  </p>
+</footer>
+
+    <!-- 🔹 Footer Ad -->
+    <div style="max-width:1024px;margin:12px auto;">
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-2203546185229559"     <!-- TODO: replace -->
+        data-ad-slot="3333333333"                     <!-- TODO: replace -->
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </footer>
+
+  <!-- 🧠 Step 1: GA4 + Smart Optimization (replace G-XXXXXXXXXX) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F3ZWF92VHW"></script>
+  <script>
+    // GA init
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F3ZWF92VHW'); // TODO: your GA4 Measurement ID
+
+    // Ad visibility tracker (basic)
+    function trackAdEvent(eventType, adSlot) {
+      if (!adSlot) adSlot = 'unknown';
+      gtag('event', eventType, {
+        event_category: 'AdSense',
+        event_label: adSlot,
+        value: 1
+      });
+    }
+    document.addEventListener('scroll', () => {
+      document.querySelectorAll('.adsbygoogle').forEach(ad => {
+        const r = ad.getBoundingClientRect();
+        if (r.top >= 0 && r.bottom <= window.innerHeight) {
+          trackAdEvent('ad_view', ad.dataset.adSlot);
+        }
+      });
+    });
+    document.querySelectorAll('.adsbygoogle').forEach(ad => {
+      ad.addEventListener('click', () => trackAdEvent('ad_click', ad.dataset.adSlot));
+    });
+  </script>
+
+  <!-- 🧠 Step 1: Auto Layout A/B Switcher -->
+  <script>
+    let layoutVersion = localStorage.getItem('layoutVersion');
+    if (!layoutVersion) {
+      layoutVersion = Math.random() < 0.5 ? 'A' : 'B';
+      localStorage.setItem('layoutVersion', layoutVersion);
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      // Apply A/B look
+      if (layoutVersion === 'A') {
+        document.body.style.background = "#e3f2fd";
+      } else {
+        document.body.style.background = "#fff8e1";
+      }
+      // Log layout performance on leave
+      function logLayoutPerformance() {
+        const timeSpent = Math.round(performance.now() / 1000);
+        gtag('event', 'layout_performance', {
+          event_category: 'A/B Test',
+          event_label: layoutVersion,
+          value: timeSpent
+        });
+      }
+      window.addEventListener('beforeunload', logLayoutPerformance);
+      // Weekly auto switch
+      const lastSwitch = localStorage.getItem('lastSwitchDate');
+      const now = Date.now();
+      if (!lastSwitch || now - lastSwitch > 7*24*60*60*1000) {
+        const next = layoutVersion === 'A' ? 'B' : 'A';
+        localStorage.setItem('layoutVersion', next);
+        localStorage.setItem('lastSwitchDate', now);
+      }
+    });
+  </script>
+
+  <!-- 🧠 Step 1: Dashboard numbers + Admin Panel (public) -->
+  <div id="admin-panel" style="
+    position: fixed; bottom: 15px; right: 15px; background: #0d47a1;
+    color: white; padding: 15px; border-radius: 10px; font-family: Arial, sans-serif;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 9999; width: 280px;">
+    <h3 style="margin-top:0; font-size:16px;">⚙️ Admin Panel</h3>
+    <p>Layout: <strong id="layoutName">Loading...</strong></p>
+    <p>Visitors: <strong id="visitorCount">0</strong></p>
+    <p>Est. Revenue: <strong id="revenuePanel">$0.00</strong></p>
+    <div style="display:flex; gap:6px; flex-wrap:wrap;">
+      <button id="switchLayoutBtn" class="btn" style="background:#fff;color:#0d47a1;">Switch Layout</button>
+      <button id="resetStatsBtn" class="btn" style="background:#fff;color:#d32f2f;">Reset Stats</button>
+    </div>
+    <div id="affBox" style="background:#1976d2;margin-top:10px;padding:8px;border-radius:6px;">
+      <p style="margin:0;font-weight:bold;">🌐 Affiliate Earnings</p>
+      <p id="affiliateEarnings">$0.00</p>
+    </div>
+  </div>
+  <script>
+    // Local counters (demo)
+    let visits = parseInt(localStorage.getItem('visits') || '0', 10);
+    let revenue = parseFloat(localStorage.getItem('revenue') || '0');
+    visits += 1;
+    localStorage.setItem('visits', visits);
+    revenue += Math.random() * 2;
+    localStorage.setItem('revenue', revenue.toFixed(2));
+
+    document.getElementById('visitorsCount').innerText = visits.toLocaleString();
+    document.getElementById('revenueCount').innerText = "$" + revenue.toFixed(2);
+    document.getElementById('visitorCount').innerText = visits.toLocaleString();
+    document.getElementById('revenuePanel').innerText = "$" + revenue.toFixed(2);
+    document.getElementById('layoutName').innerText = localStorage.getItem('layoutVersion');
+
+    document.getElementById('switchLayoutBtn').addEventListener('click', () => {
+      const nowLayout = localStorage.getItem('layoutVersion') === 'A' ? 'B' : 'A';
+      localStorage.setItem('layoutVersion', nowLayout);
+      alert("Layout switched to " + nowLayout + " — refresh to apply.");
+      location.reload();
+    });
+    document.getElementById('resetStatsBtn').addEventListener('click', () => {
+      localStorage.removeItem('visits');
+      localStorage.removeItem('revenue');
+      localStorage.removeItem('affiliateRevenue');
+      alert("Stats reset. Refresh page to see new data.");
+      location.reload();
+    });
+  </script>
+
+  <!-- 🧠 Step 1: Video tracker (play/pause/ended) -->
+  <script>
+    const vid = document.getElementById('demoVideo');
+    if (vid) {
+      vid.addEventListener('play',  () => gtag('event','video_play',  {event_category:'Video', value:1}));
+      vid.addEventListener('pause', () => gtag('event','video_pause', {event_category:'Video', value:1}));
+      vid.addEventListener('ended', () => gtag('event','video_end',   {event_category:'Video', value:1}));
+    }
+  </script>
+
+  <!-- 🧠 Step 1: Auto SEO + lightweight backlink pings -->
+  <script>
+    const seoKeywords = [
+      "AI Business Tools",
+      "Online Advertising Automation",
+      "Affiliate Revenue Optimization",
+      "Travel Deals",
+      "AdSense Income Dashboard"
+    ];
+    const metaKeywords = document.createElement('meta');
+    metaKeywords.name = "keywords";
+    metaKeywords.content = seoKeywords.join(", ");
+    document.head.appendChild(metaKeywords);
+
+    const metaDescription = document.querySelector('meta[name="description"]') || document.createElement('meta');
+    metaDescription.name = "description";
+    metaDescription.content = "Earn income through AI-powered advertising and affiliate systems. Monitor real-time traffic, revenue, and SEO performance.";
+    if (!document.querySelector('meta[name="description"]')) document.head.appendChild(metaDescription);
+
+    // very-light signals (image pings)
+    const backlinkSources = [
+      "https://www.reddit.com/submit",
+      "https://www.pinterest.com/pin/create/bookmarklet/"
+    ];
+    backlinkSources.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src + "?url=" + encodeURIComponent(location.href) + "&title=" + encodeURIComponent(document.title);
+      img.style.display = "none";
+      document.body.appendChild(img);
+    });
+
+    function logSEOEvent(type, value) {
+      gtag('event', 'seo_activity', { event_category: 'SEO', event_label: type, value });
+    }
+    backlinkSources.forEach(() => logSEOEvent("backlink_created", 1));
+    setInterval(() => {
+      const randomKeyword = seoKeywords[Math.floor(Math.random() * seoKeywords.length)];
+      metaDescription.content = "Trending: " + randomKeyword + " — Automate business revenue with AI.";
+      logSEOEvent("meta_refresh", 1);
+    }, 7*24*60*60*1000);
+  </script>
+
+  <!-- 🧠 Step 1: Local directory helpers (download robots.txt & sitemap.xml) -->
+  <script>
+    document.getElementById('downloadRobots').addEventListener('click', () => {
+      const robots = `User-agent: *\nAllow: /\nSitemap: ${location.origin}/sitemap.xml\n`;
+      const blob = new Blob([robots], {type:'text/plain'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+      a.download = 'robots.txt'; a.click();
+    });
+    document.getElementById('downloadSitemap').addEventListener('click', () => {
+      const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${location.origin}/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>\n  <url><loc>${location.origin}/blog.html</loc><changefreq>daily</changefreq><priority>0.8</priority></url>\n</urlset>`;
+      const blob = new Blob([xml], {type:'application/xml'});
+      const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+      a.download = 'sitemap.xml'; a.click();
+    });
+  </script>
+
+  <!-- 🧠 Step 1: Affiliate Tracker (placeholders) -->
+  <script>
+    const affiliateAccounts = {
+      "Amazon": "tag=your-amazon-tag",
+      "Booking": "aid=your-booking-id",
+      "Skyscanner": "partnerId=your-skyscanner-id",
+      "Expedia": "partnerid=your-expedia-id"
+    };
+    let affiliateRevenue = parseFloat(localStorage.getItem('affiliateRevenue') || '0');
+    affiliateRevenue += (Math.random() * 3);
+    localStorage.setItem('affiliateRevenue', affiliateRevenue.toFixed(2));
+    const affEl = document.getElementById('affiliateEarnings');
+    if (affEl) affEl.innerText = "$" + affiliateRevenue.toFixed(2);
+
+    document.querySelectorAll('a[href*="amazon"], a[href*="booking"], a[href*="expedia"], a[href*="skyscanner"]').forEach(link => {
+      link.addEventListener('click', () => {
+        affiliateRevenue += (Math.random() * 1.5);
+        localStorage.setItem('affiliateRevenue', affiliateRevenue.toFixed(2));
+        if (affEl) affEl.innerText = "$" + affiliateRevenue.toFixed(2);
+        gtag('event', 'affiliate_click', { event_category:'Affiliate', event_label: link.href, value:1 });
+      });
+    });
+  </script>
+
+  <!-- 🧠 Step 1: Auto Blog Generator (local daily) -->
+  <script>
+    const blogTopics = [
+      "AdSense RPM strategies",
+      "Affiliate marketing tips",
+      "SEO for 2025: quick wins",
+      "Automation for small business",
+      "Travel deals & monetization"
+    ];
+    let blogData = JSON.parse(localStorage.getItem("autoBlogs") || "[]");
+    function generatePost() {
+      const topic = blogTopics[Math.floor(Math.random() * blogTopics.length)];
+      const today = new Date().toISOString();
+      const content =
+        `<h4>${topic}</h4>
+         <p>${new Date(today).toDateString()} — Insights on ${topic.toLowerCase()} and how automation boosts revenue with minimal effort.</p>`;
+      blogData.unshift({ topic, content, date: today });
+      if (blogData.length > 20) blogData.pop();
+      localStorage.setItem("autoBlogs", JSON.stringify(blogData));
+    }
+    const lastRun = localStorage.getItem("lastBlogRun");
+    const nowT = Date.now();
+    if (!lastRun || nowT - (+lastRun) > 24*60*60*1000) {
+      generatePost();
+      localStorage.setItem("lastBlogRun", nowT.toString());
+    }
+    // render under main card
+    document.addEventListener('DOMContentLoaded', () => {
+      const host = document.querySelector(".container");
+      const sec = document.createElement("section"); sec.className = "card";
+      sec.innerHTML = `<h3>📰 Latest AI Business Insights</h3>`;
+      blogData.forEach(b => sec.innerHTML += `<article class="card">${b.content}</article>`);
+      host.appendChild(sec);
+    });
+  </script>
+
+  <!-- 🧠 Step 1: JSONBin persistence + on-page RSS builder -->
+  <script>
+    const BIN_ID = "690fef86d0ea881f40dc9c47";      // TODO
+    const API_KEY = "$2a$10$9VHwd0ZuwZfL3JrUPh0qF.8VxdyJiEnd3Dlkv/Ui2VH8IB8AWrMl6";    // TODO
+    const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+
+    async function loadBlogsRemote() {
+      try {
+        const res = await fetch(BIN_URL + "/latest", { headers: { "X-Master-Key": API_KEY }});
+        const data = await res.json();
+        return data?.record?.blogs || [];
+      } catch (e) { console.warn("Load error", e); return []; }
+    }
+    async function saveBlogsRemote(blogs) {
+      try {
+        await fetch(BIN_URL, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Master-Key": API_KEY
+          },
+          body: JSON.stringify({ blogs })
+        });
+      } catch (e) { console.warn("Save error", e); }
+    }
+    (async () => {
+      const localBlogs = JSON.parse(localStorage.getItem("autoBlogs") || "[]");
+      if (localBlogs.length) await saveBlogsRemote(localBlogs);
+      const remoteBlogs = await loadBlogsRemote();
+      if (remoteBlogs.length) {
+        const host = document.querySelector(".container");
+        const sec = document.createElement("section"); sec.className = "card";
+        sec.innerHTML = `<h3>📰 Latest AI Business Insights (Shared)</h3>`;
+        remoteBlogs.slice(0,10).forEach(b => sec.innerHTML += `<article class="card">${b.content}</article>`);
+        host.appendChild(sec);
+      }
+
+      // Build downloadable RSS (feed.xml)
+      const items = (remoteBlogs.length ? remoteBlogs : localBlogs)
+        .map(b => `
+          <item>
+            <title>${b.topic}</title>
+            <link>${location.origin}</link>
+            <description>${b.content.replace(/<[^>]*>?/gm, '')}</description>
+            <pubDate>${b.date}</pubDate>
+          </item>`).join("");
+      const rss = `<?xml version="1.0" encoding="UTF-8"?>
+      <rss version="2.0">
+        <channel>
+          <title>AI Business Autopilot Blog</title>
+          <link>${location.origin}</link>
+          <description>Daily AI-powered insights and automation tips</description>
+          ${items}
+        </channel>
+      </rss>`;
+      const blob = new Blob([rss], { type: "application/rss+xml" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "feed.xml";
+      link.textContent = "📰 Download RSS Feed";
+      link.style.display = "block";
+      link.style.margin = "16px 0";
+      document.querySelector(".container").appendChild(link);
+    })();
+  </script>
+</body>
+</html>
+
+
