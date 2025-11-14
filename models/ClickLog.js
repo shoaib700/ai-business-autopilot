@@ -2,11 +2,13 @@ import mongoose from "mongoose";
 
 const ClickLogSchema = new mongoose.Schema(
   {
-    linkId: { type: mongoose.Schema.Types.ObjectId, ref: "AffiliateLink" },
+    affiliate: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "AffiliateLink",
+    },
     ip: String,
     userAgent: String,
-    country: String,
-    device: String,
+    sourcePage: String,
   },
   { timestamps: true }
 );

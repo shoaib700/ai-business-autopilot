@@ -1,4 +1,3 @@
-// models/Revenue.js
 import mongoose from "mongoose";
 
 const RevenueSchema = new mongoose.Schema(
@@ -27,4 +26,5 @@ const RevenueSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.models.Revenue || mongoose.model("Revenue", RevenueSchema);
+export default mongoose.models.Revenue ||
+  mongoose.model("Revenue", RevenueSchema);
