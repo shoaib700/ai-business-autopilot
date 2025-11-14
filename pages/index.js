@@ -4,22 +4,6 @@ export default function Home() {
       <h1>AI Business Autopilot</h1>
       <p>Welcome to your automated earnings dashboard.</p>
 
-      {/* Ads Section */}
-      <div style={{ textAlign: "center", margin: "20px 0" }}>
-        <ins
-          className="adsbygoogle"
-          style={{ display: "block" }}
-          data-ad-client="ca-pub-2203534618229559"
-          data-ad-slot="1234567890"
-          data-ad-format="auto"
-          data-full-width-responsive="true"
-        ></ins>
-
-        <script>
-          {(adsbygoogle = window.adsbygoogle || []).push({});}
-        </script>
-      </div>
-
       <a
         href="/dashboard"
         style={{
