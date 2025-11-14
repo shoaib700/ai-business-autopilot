@@ -1,4 +1,4 @@
-import connectDB from "../../lib/mongodb";
+import connectDB from "../../../lib/mongodb";
 import Revenue from "../../models/Revenue";
 
 export default async function handler(req, res) {
