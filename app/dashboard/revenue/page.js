@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { predictNext30Days } from "@/helpers/aiPredict";
 
 export default function RevenueDashboard() {
   const [list, setList] = useState([]);
@@ -41,7 +40,6 @@ export default function RevenueDashboard() {
   }
 
   // ========== AI Prediction ==========
-  const ai = predictNext30Days(list);
 
   // ========== Summary ==========
   const total = list.reduce((a, b) => a + b.amount, 0);
